@@ -1,0 +1,15 @@
+const express=require('express');
+var path=require('path');
+const app=express();
+app.use(express.static(path.join(__dirname, 'public')));
+const db=require('./conn');
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+var route_index=require('./routes/index');
+var route_main=require('./routes/main');
+var route_edit=require('./routes/edit');
+app.use('/',route_main);
+app.use('/index',route_index);
+app.use('/main',route_main);
+app.use('/edit',route_edit);
+app.listen(3001);

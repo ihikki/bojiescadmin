@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../myjs/edit.js"></script>
+    <script type="text/javascript" src="../Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../Js/ckform.js"></script>
+    <script type="text/javascript" src="../Js/common.js"></script>
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+        .spantip{
+            width: 170px;
+            height: 22px;
+            line-height: 22px;
+            font-size: 12px;
+            margin-top: -1px;
+            margin-left: 5px;
+            background: #f6fcf7;
+            color: red;
+            border: 1px solid red;
+           text-align: center;
+           display: none
+        }
+        .wanyuan{
+            float: left;
+            height: 22px;
+            line-height: 22px;
+            font-size: 12px;
+            margin-left: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form action="index.html" class="definewidth m20" >
+<input type="hidden" name="id" value="{$role.id}" />
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <td width="10%" class="tableleft">用户名</td>
+        <td id="str7"><%=s0%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">车源地</td>
+        <td><%=s1%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">车型</td>
+        <td><%=s2%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">上牌时间</td>
+        <td id="str3"><%=s3%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">车辆里程</td>
+        <td id="str4"><%=s4%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">重大事故经历次数</td>
+        <td id="str5"><%=s5%></td>
+    </tr>
+    <tr>
+        <td class="tableleft">车辆价格</td>
+        <td>
+        <input type="text" style="float:left"  id="carprice" placeholder="请输入市场报价进行计算">
+        <span class="wanyuan">万元</span>
+        <span class="spantip">输入字符有误</span>
+        </td>
+    </tr>
+    <tr>
+            <td class="tableleft">评估系数(0.08-0.09)</td>
+            <td>
+               <input type="text" style="float:left"  id="cark" placeholder="请输入评估系数">
+               <span class="spantip">输入字符有误</span>
+            </td>
+     </tr>
+    <tr>
+        <td class="tableleft">评估等级</td>
+        <td  id="carlevel">
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">确认状态</td>
+        <td id="status"><%=s8%></td>
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button  class="btn btn-primary" id="getprice" type="button">计算价格</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {
+        $(':checkbox[name="group[]"]').click(function () {
+            $(':checkbox', $(this).closest('li')).prop('checked', this.checked);
+        });
+
+		$('#backid').click(function(){
+				window.location.href="./Role/index.html";
+		 });
+
+    });
+</script>
